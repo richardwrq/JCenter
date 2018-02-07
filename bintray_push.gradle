@@ -28,7 +28,7 @@ ext {
     gpgPassphrase = properties.getProperty("gpg.passphrase")
     mavenUser = properties.getProperty("maven.user")
     mavenPwd = properties.getProperty("maven.pwd")
-    syncMaven = properties.hasProperty("maven.sync") && properties.getProperty("maven.sync").toBoolean()
+    syncMaven = properties.getProperty("maven.sync") != null && properties.getProperty("maven.sync").toBoolean()
 }
 group = groupId
 version = versionName
