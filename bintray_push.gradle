@@ -28,6 +28,7 @@ ext {
     gpgPassphrase = properties.getProperty("gpg.passphrase")
     mavenUser = properties.getProperty("maven.user")
     mavenPwd = properties.getProperty("maven.pwd")
+    syncMaven = properties.getProperty("maven.sync").toBoolean()
 }
 group = groupId
 version = versionName
@@ -59,7 +60,7 @@ bintray {
             }
             //Optional configuration for Maven Central sync of the version
             mavenCentralSync {
-                sync = true //[Default: true] Determines whether to sync the version to Maven Central.
+                sync = syncMaven //[Default: true] Determines whether to sync the version to Maven Central.
                 user = mavenUser //OSS user token: mandatory
                 password = mavenPwd //OSS user password: mandatory
                 close = '1'
