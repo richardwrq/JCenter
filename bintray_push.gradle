@@ -115,8 +115,12 @@ if (project.hasProperty("kotlin")) { //Kotlin libraries
         }
     }
 
-    task javadoc(type: Javadoc, dependsOn: dokka) {
+    if (project.hasProperty("javadoc")) {
+        javadoc.dependsOn 'dokka'
+    } else {
+        task javadoc(type: Javadoc, dependsOn: dokka) {
 
+        }
     }
 } else if (project.hasProperty("android")) {
     task sourcesJar(type: Jar) {
