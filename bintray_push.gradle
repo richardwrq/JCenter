@@ -90,7 +90,7 @@ install {
             }
             developers {
                 developer {
-                    id 'qaz3366639'
+                    id 'richardwrq'
                     name 'RichardWu'
                     email '263454190@qq.com'
                 }
@@ -115,7 +115,9 @@ if (project.hasProperty("kotlin")) { //Kotlin libraries
         }
     }
 
-    javadoc.dependsOn 'dokka'
+    task javadoc(type: Javadoc, dependsOn: dokka) {
+
+    }
 } else if (project.hasProperty("android")) {
     task sourcesJar(type: Jar) {
         classifier = 'sources'
